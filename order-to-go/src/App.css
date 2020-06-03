@@ -1,0 +1,100 @@
+.App {
+  text-align: center;
+}
+body{
+  /* background-color: #f3b6f3; */
+  background-image: linear-gradient(-10deg, #C62828, #BA68C8);
+  min-height: 100vh;
+}
+Header {
+padding-top: 10px; 
+padding-bottom: 10px;
+  background-color:grey;
+}
+ol li {
+  list-style-type: none;
+  text-align: left;
+  /* font-size: 1em; */
+  padding: 10px;
+}
+.nav ul li{
+  font-size: 1.5em;
+  font-weight: bolder;
+  display: inline;
+  padding: 50px;
+  margin-left: 0;
+}
+.total{
+  padding: 50px;
+  text-align: left;
+}
+.active {
+  color: orange;
+  text-decoration: none;
+}
+.box {
+  margin: auto;
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  flex-wrap:  wrap;
+
+}
+.box > div {
+  border: 1px solid purple;
+  background-color: rgb(112, 102, 136);
+  min-width: 31%;
+  padding: 10px;
+}
+.box > div:nth-of-type(odd){
+ background-color:rgb(131, 108, 130);
+ border: 1px solid purple;
+}
+h2 {
+  color: blue;
+}
+nav > div {
+  display: inline;
+  padding: 10px;
+  color:orangered;
+  font-weight: bold;
+}
+.detail {
+  margin: auto;
+  width: 60%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.detail > div{
+  background-color:rgb(90, 79, 117);
+  padding: 1em;
+ }
+.detail > div:nth-of-type(odd){
+  background-color:rgb(131, 108, 130);
+ }
+span {
+  color: gold;
+}
+
+li button{
+  background-color: lightgray;
+  /* display: block; */
+  /* padding: 20px;
+  width: 30px; */
+  /* margin-left: 0;
+  margin-bottom: 10px; */
+}
+
+.search-form{
+  width:50%;
+  padding: 10px;
+  margin: auto;
+  background-color: lightgray;
+  border:1px solid #ccc;
+  border-radius: 10px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
