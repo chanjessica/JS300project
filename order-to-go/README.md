@@ -16,6 +16,18 @@ npm install --save firebase
 
 5 ==== create GitHub page
 npm install --save-dev gh-pages
-npm run deploy
+
 
 ?? === got an error:  missing script: deploy
+make sure edit the package.json to include delpoyment info
+ and github page "homepage": "https://chanjessica.github.io/JS300project/"
+
+=== make sure to rename .env.development.local to .env.local
+=== make sure to add api-key file in .gitignore
+
+=== npm run deploy == create
+> order-to-go@0.1.0 deploy C:\_UWclass\JS300\JS300project\order-to-go
+> gh-pages -d build
+Published
+
+check: https://chanjessica.github.io/JS300project/
