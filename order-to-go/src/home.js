@@ -13,19 +13,19 @@ export default () => {
                 </ul>
                 <div className="carousel-inner">
                     <div className="carousel-item active justify-content-center">
-                        <img className="d-block mx-auto" src="food-q-c-640-480-1.jpg" alt="food 1" />
+                        <img className="d-block mx-auto" src="https://lorempixel.com/output/food-q-c-640-480-1.jpg" alt="food 1" />
                         <div className="carousel-caption">
                             <h3>Kung Po Chicken</h3>
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img className="d-block mx-auto" src="food-q-c-640-480-2.jpg" alt="food 2" />
+                        <img className="d-block mx-auto" src="https://lorempixel.com/output/food-q-c-640-480-2.jpg" alt="food 2" />
                         <div className="carousel-caption">
                             <h3>Mongolian Beef</h3>
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img className="d-block mx-auto" src="food-q-c-640-480-3.jpg" alt="food 3" />
+                        <img className="d-block mx-auto" src="https://lorempixel.com/output/food-q-c-640-480-3.jpg" alt="food 3" />
                         <div className="carousel-caption">
                             <h3>Twice Cooked Pork</h3>
                         </div>
