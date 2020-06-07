@@ -1,6 +1,4 @@
-// import firebase from 'firebase';
 import React from 'react';
-// import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
 import { HashRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
 import './App.css';
 import NotFound from './NotFound';
@@ -8,16 +6,6 @@ import Menu from './menu';
 import Home from './home';
 import Login from './login';
 import Logout from './logout';
-
-// const firestore = firebase.firestore();
-// firestore
-//   .collection('foodToGo')
-//   .onSnapshot(
-//     snapshot => console.log(
-//       snapshot.docs.map(doc => doc.data())
-//     ),
-//     err => console.log(err)
-//   );
 
 const Links = () => (
   <div className="nav">
@@ -49,4 +37,3 @@ function App() {
 }
 
 export default App;
-
