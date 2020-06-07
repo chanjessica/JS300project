@@ -5,7 +5,8 @@ import firebase from 'firebase';
 
 const uiConfig = {
     signInFlow: 'popup',
-    signInSuccessUrl: '/menu',
+    // signInSuccessUrl: '/menu',
+    signInSuccessUrl: process.env.PUBLIC_URL + '/#/menu',
     signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID]
 }
 
