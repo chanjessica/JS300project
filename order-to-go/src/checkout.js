@@ -8,16 +8,14 @@ export default class Checkout extends React.Component {
         isSignedIn: false,
         uid: ' ',
         checkout: [],
-        profile: []
+        newBalance: 0,
+        oldBalance: 0
     }
 
     componentDidMount() {
         this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
             user => {
                 this.setState({ isSignedIn: !!user });
-                console.log(this.state.isSignedIn);
-                console.log(user);
-                console.log(this.props.history);
                 if (user) {
                     this.setState({ uid: firebase.auth().currentUser.uid });
                     console.log(this.state.uid);
@@ -25,13 +23,9 @@ export default class Checkout extends React.Component {
                     this.unsubscribe = db
                         .collection('clients')
                         .doc(this.state.uid)
-                        // .doc('c1sbmzh62uhSP8ChIeDlIehj7Va2')
                         .collection('foodToGo')
                         .onSnapshot(snapshot => { this.setState({ checkout: snapshot.docs }); });
                 }
-                // else {
-                //     this.props.history.push('/')
-                // }
             }
         );
     }
@@ -42,24 +36,26 @@ export default class Checkout extends React.Component {
 
         db.collection('clients')
             .doc(this.state.uid)
-            // .doc('c1sbmzh62uhSP8ChIeDlIehj7Va2')
             .collection('foodToGo')
             .doc(id)
             .delete();
     }
 
     placeOrder = (cost) => (e) => {
-        alert(`total cost ${cost}`);
         e.preventDefault();
-        // return (e) => {
-        //     alert(`total cost ${cost}`);
-        // }
+        db.collection('clients')
+            .doc(this.state.uid)
+            .get()
+            .then(data => {
+                alert(`Hi ${data.data().firstName} ${data.data().lastName}, 
+                \n$${cost} is deducted from your accountt (balance = $${data.data().balance} ) 
+                \nYour new balance is $${data.data().balance - cost} 
+                \n\nPlease logout`)
+                this.setState({ newBalance: data.data().balance - cost })
+            })
     }
 
     render() {
-        console.log(firebase.auth().currentUser);
-        console.log(this.state.checkout);
-
         const listItems = this.state.checkout.map(entry =>
             <li key={entry.id}>
                 {entry.data().dish}    ${entry.data().price}
