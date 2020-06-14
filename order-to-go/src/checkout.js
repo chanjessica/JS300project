@@ -8,8 +8,7 @@ export default class Checkout extends React.Component {
         isSignedIn: false,
         uid: ' ',
         checkout: [],
-        newBalance: 0,
-        oldBalance: 0
+        newBalance: 0
     }
 
     componentDidMount() {
@@ -18,7 +17,6 @@ export default class Checkout extends React.Component {
                 this.setState({ isSignedIn: !!user });
                 if (user) {
                     this.setState({ uid: firebase.auth().currentUser.uid });
-                    console.log(this.state.uid);
 
                     this.unsubscribe = db
                         .collection('clients')
@@ -42,17 +40,18 @@ export default class Checkout extends React.Component {
     }
 
     placeOrder = (cost) => (e) => {
-        e.preventDefault();
         db.collection('clients')
             .doc(this.state.uid)
             .get()
             .then(data => {
+                const newBalance = parseFloat(data.data().balance - cost, 0).toFixed(2);
                 alert(`Hi ${data.data().firstName} ${data.data().lastName}, 
                 \n$${cost} is deducted from your accountt (balance = $${data.data().balance} ) 
-                \nYour new balance is $${data.data().balance - cost} 
-                \n\nPlease logout`)
-                this.setState({ newBalance: data.data().balance - cost })
-            })
+                \nYour new balance is $${ newBalance}
+                \n\nThank you for your order! Please logout!`)
+                this.setState({ newBalance });
+                db.collection('clients').doc(this.state.uid).update({ balance: newBalance });
+            });
     }
 
     render() {
